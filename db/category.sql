@@ -1,0 +1,1 @@
+INSERT INTO Category(name) VALUES ("Fiction"),("Biography"),("Business & Management"),("Children"),("Fiction"),("Film"),("Health"),("Non Fiction");

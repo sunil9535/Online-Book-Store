@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Python Shopping Cart</title>
+	
+	
+	<!------------------------ Third party libraries -------------------------->
+	<script src="static/lib/jquery-2.1.4.js"></script>
+	<script src="static/lib/angular.min.js"></script>
+	<script src="static/lib/angular-route.min.js"></script>
+	<link rel="stylesheet" href="static/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	<script src="static/lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	
+	<!------------------------ Application css -------------------------->
+	<link rel="stylesheet" href="static/css/header.css">
+	<link rel="stylesheet" href="static/css/sidenav.css">
+	<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="static/css/bookstore.css">
+	<link rel="stylesheet" href="static/css/carousel.css">
+	
+	<!------------------------ Application Scripts -------------------------->
+	
+	<!------------------------ Models -------------------------->
+	<script src="static/js/model/core/Books.js"></script>
+	<script src="static/js/model/core/Category.js"></script>
+	
+	
+	<script src="static/js/app.js"></script>
+	<script src="static/js/config.js"></script>
+	
+	<script src="static/js/constants/constants.js"></script>
+	
+	<script src="static/js/carousel/carousel.js"></script>
+	
+	<script src="static/js/shared/controllers/header.js"></script>
+	<script src="static/js/shared/controllers/nav.js"></script>
+	<script src="static/js/shared/services/data.js"></script>
+	
+	<script src="static/js/components/books/BookService.js"></script>
+	<script src="static/js/components/books/popularBooksCtrl.js"></script>
+	
+	<script src="static/js/components/store/storeCtrl.js"></script>
+	<script src="static/js/components/store/StoreService.js"></script>
+	
+	<script src="static/js/routes.js"></script>
+	
+	<script src="static/js/components/cart/cartCtrl.js"></script>
+	<script src="static/js/components/cart/CartService.js"></script>
+	
+	<script src="static/js/shared/controllers/header.js"></script>
+	<script src="static/js/shared/controllers/nav.js"></script>
+</head>
+<body  ng-app="bookStore">
+	<div id="book-store-container" class="toggle-sidebar" >
+		<div ng-include src="'/static/views/partials/sidebar.html'"></div>
+		<div id="page-content" class="page-content-wrapper">
+			<div ng-include src="'/static/views/partials/header.html'"></div>
+			
+		    <div class="container-fluid">
+		        <div ng-view></div>
+		    </div>
+		</div>
+	</div>
+
+</body>
+</html>

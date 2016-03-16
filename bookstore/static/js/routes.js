@@ -1,0 +1,9 @@
+app.config(function($routeProvider){
+	$routeProvider.when("/",{
+		redirectTo:'/home'
+	}).
+	when("/home",{
+		templateUrl:'static/js/components/store/templates/bookstore.html',
+		controller:"storeCtrl"
+	})
+});

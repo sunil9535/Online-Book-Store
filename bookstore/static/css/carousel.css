@@ -1,0 +1,26 @@
+
+.indicator {
+   background-color: grey;	
+}
+.carousel-inner{
+	    width: 70%;
+    margin: auto;
+}
+.carousel-panel{
+	margin:0 15px 0 15px;
+}
+.carousel-inner {
+    width: 80%;
+    margin: auto;
+}
+.carousel-control{
+	width:5%
+}
+.item{
+	float: left;
+	overflow: hidden;
+    height: auto;
+}
+.item .carousel-panel{
+	float: left;
+}
