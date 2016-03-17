@@ -9,7 +9,7 @@ from bookstore.src.Database.DBConnection import DBConnect
 
 from contextlib import closing
 from ..models.core.business.books.BookRepository import BookRepository
-from bookstore.src.dao.BookDao import BookDao
+from bookstore.src.book.dao.BookDao import BookDao
 from flask import jsonify
 
 dao = BookDao()

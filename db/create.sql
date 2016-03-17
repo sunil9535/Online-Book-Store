@@ -59,6 +59,7 @@ CREATE TABLE rating(
 CREATE TABLE Category(
 	cat_id int NOT NULL AUTO_INCREMENT,
 	cat_name VARCHAR(100) NOT NULL,
+	parent INT,
 	PRIMARY KEY (cat_id)
 )
 

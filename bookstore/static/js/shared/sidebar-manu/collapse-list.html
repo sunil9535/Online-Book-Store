@@ -1,0 +1,12 @@
+<div class="panel panel-default sidebar-component" ng-repeat="item in navigationList.submenu">
+      <div class="panel-heading component-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse{{$index}}-{{item.name}}" onclick="return false;" >{{item.name}}</a>
+        </h4>
+        <span ng-if="item.submenu.length >0 " class="component-collapse-icon glyphicon glyphicon-chevron-right pull-right" ></span>
+      </div>
+      <div id="collapse{{$index}}-{{item.name}}" class="panel-collapse collapse component-submenu">
+       
+        <collapse-list ng-if="item.submenu.length >0 " navigation-list="item"></collapse-list> 
+      </div>
+    </div>

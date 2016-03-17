@@ -9,8 +9,13 @@
 	<script src="static/lib/jquery-2.1.4.js"></script>
 	<script src="static/lib/angular.min.js"></script>
 	<script src="static/lib/angular-route.min.js"></script>
-	<link rel="stylesheet" href="static/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	
 	<script src="static/lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	<script src="static/lib/bootstrap-3.3.6-dist/js/ui-bootstrap-tpls-1.2.4.min.js"></script>
+	
+	<link rel="stylesheet" href="static/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	
+	
 	
 	<!------------------------ Application css -------------------------->
 	<link rel="stylesheet" href="static/css/header.css">
@@ -34,8 +39,8 @@
 	<script src="static/js/carousel/carousel.js"></script>
 	
 	<script src="static/js/shared/controllers/header.js"></script>
-	<script src="static/js/shared/controllers/nav.js"></script>
 	<script src="static/js/shared/services/data.js"></script>
+	<script src="static/js/shared/sidebar-manu/recursion.js"></script>
 	
 	<script src="static/js/components/books/BookService.js"></script>
 	<script src="static/js/components/books/popularBooksCtrl.js"></script>
@@ -49,11 +54,12 @@
 	<script src="static/js/components/cart/CartService.js"></script>
 	
 	<script src="static/js/shared/controllers/header.js"></script>
-	<script src="static/js/shared/controllers/nav.js"></script>
+	<script src="static/js/components/category/CategoryService.js"></script>
+	<script src="static/js/shared/sidebar-manu/nav.js"></script>
 </head>
 <body  ng-app="bookStore">
 	<div id="book-store-container" class="toggle-sidebar" >
-		<div ng-include src="'/static/views/partials/sidebar.html'"></div>
+		<div ng-include src="'/static/js/shared/sidebar-manu/sidebar.html'"></div>
 		<div id="page-content" class="page-content-wrapper">
 			<div ng-include src="'/static/views/partials/header.html'"></div>
 			
