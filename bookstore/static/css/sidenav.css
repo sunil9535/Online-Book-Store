@@ -11,6 +11,9 @@
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
+  .sidebar-wrapper .accordion-toggle {
+    cursor: pointer;
+    text-decoration: none; }
   .sidebar-wrapper .sidebar-component {
     background-color: #252525;
     color: #999999;
@@ -30,12 +33,15 @@
         border-top: 1px solid #373737;
         border-bottom: 1px solid #1A1A1A; }
     .sidebar-wrapper .sidebar-component .component-heading {
+      cursor: pointer;
       border: none;
       color: #999999;
       background-color: #252525;
       list-style-type: none;
       line-height: 18px;
       border-bottom: 1px solid #1A1A1A; }
+      .sidebar-wrapper .sidebar-component .component-heading .component-collapse-icon {
+        font-size: large; }
       .sidebar-wrapper .sidebar-component .component-heading .panel-title {
         display: inline-block; }
       .sidebar-wrapper .sidebar-component .component-heading a {

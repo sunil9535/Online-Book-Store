@@ -33,6 +33,7 @@ class CategoryDao(DataAccessor):
                     "on parent.cat_id = child.parent;")
             raw_categories = super(CategoryDao,self).read(query= query)
             categorie_list = CategoryService().prepare_categories(raw_categories)
+            
             return categorie_list
         except Exception as e:
             print(e,"get_books_by_id","SubCat")

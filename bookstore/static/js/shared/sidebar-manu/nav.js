@@ -9,55 +9,15 @@ angular.module("bookStore").controller(
 					$scope.navigationList = []
 					$scope.populateNavigationList = function(categories) {
 						$scope.navigationList = SideMenu;
-						$scope.navigationList.submenu[1].submenu = categories;
+						
 					}
-					
+					var populateCategories= function(list){
+						$scope.navigationList.submenu[1].submenu = list
+					}
 					var init = function() {
-						$scope.populateNavigationList([ {
-							"name" : "dfg",
-							"submenu" : [ {
-								"name" : "kjsd",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "asdas",
-							"submenu" : [ {
-								"name" : "ads",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "uio",
-							"submenu" : [ {
-								"name" : "kgjjsd",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "vbn",
-							"submenu" : [ {
-								"name" : "vbnbvn",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "aertvb",
-							"submenu" : [ {
-								"name" : "mhgz",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "tyreaws",
-							"submenu" : [ {
-								"name" : "xcvf",
-								"submenu" : []
-							} ]
-						}, {
-							"name" : "werv",
-							"submenu" : [ {
-								"name" : "mlkjiyu",
-								"submenu" : []
-							} ]
-						} ])
+						$scope.populateNavigationList()
 						CategoryService.getAllCategories().then(function(res){
-							console.log(res)
+							populateCategories(res.data.categoryList)
 						})
 					}
 					$scope.loadBooksByCategory = function(categoryType,
