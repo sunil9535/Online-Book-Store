@@ -4,3 +4,6 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 
 # Home Page
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/Home.png)
+
+# Home page woth sidebar menu 
+![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/sidebar.png)
