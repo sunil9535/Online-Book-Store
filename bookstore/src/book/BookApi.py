@@ -40,3 +40,16 @@ class PopularBookApi(Resource):
             return jsonify({"books":dao.get_popular_books(),"type":"popular"})
         except Exception as e:
             print("popular_book_api",e )
+            
+class BookByCategoryApi(Resource):
+    '''
+    classdocs
+    '''
+    def __init__(self):
+        self.connection = DBConnect().get_connection()
+        self.connection.autocommit(True)
+    def get(self):
+        try:
+            return jsonify({"books":dao.get_popular_books(),"type":"popular"})
+        except Exception as e:
+            print("popular_book_api",e )

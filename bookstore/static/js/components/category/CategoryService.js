@@ -19,7 +19,6 @@ angular.module("bookStore").service("CategoryService",function($q, $http, DataSe
 		});
 		return deferred.promise;
 	}
-	
 
 
 })

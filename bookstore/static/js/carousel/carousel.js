@@ -36,8 +36,8 @@ angular.module("bookStore").directive("carousel",function(){
 		}
 		
 		$("#carousel").carousel({
-			interval : $scope.interval,
-			pause: true
+			interval :false,
+			pause: $scope.autoSlide
 		});
 	}
 	$scope.$watch("carouselData",function(newVal,oldVal){

@@ -20,6 +20,18 @@ angular.module("bookStore").service("BookService",function($q, $http, DataServic
 		return deferred.promise;
 	}
 	
+	this.getBookBycategory = function(category){
+		var deferred = $q.defer();
+		dataService.getBookBycategory(category).then(function(response){
+			if(response){
+				deferred.resolve(response);
+			}
+			else {
+				deferred.reject;
+			}
+		});
+		return deferred.promise;
+	}
 
 
 })

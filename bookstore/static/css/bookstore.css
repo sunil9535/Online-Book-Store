@@ -1,6 +1,29 @@
-@CHARSET "ISO-8859-1";
-.book-title{
+.layout-main .row .carousel .carousel-inner .item .carousel-panel .panel-body {
+  padding: 0;
+  padding: 0; }
+  .layout-main .row .carousel .carousel-inner .item .carousel-panel .panel-body .book-cover {
+    width: 60%;
+    margin: auto; }
+.layout-main .row .carousel .carousel-inner .item .carousel-panel .book-title, .layout-main .row .carousel .carousel-inner .item .carousel-panel .panel-footer {
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+
+/*# sourceMappingURL=bookstore.css.map */
+
+
+@media all and (max-device-width: 720px){
+    .navbar-brand {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-device-width: 640px){
+    .navbar-brand{font-size: 16px;}
+    
+}
+
+@media all and (max-device-width: 320px){
+  .navbar-brand{font-size: 12px;}
+    
 }

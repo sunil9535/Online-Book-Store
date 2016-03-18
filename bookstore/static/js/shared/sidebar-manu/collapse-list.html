@@ -1,9 +1,10 @@
 <div class="panel-group" id="accordion">
 <div class="panel panel-default sidebar-component" ng-repeat="item in navigationList.submenu">
-      <div class="panel-heading  component-heading">
-        <h4 class="panel-title">
-          <a  data-toggle="collapse" class="accordion-toggle collapsed" data-target="#collapse{{$index}}-{{item.id}}" onclick="return false;" >{{item.name}}</a>
-        </h4>
+      <div class="panel-heading  component-heading accordion-toggle collapsed"  data-toggle="collapse"
+					data-target="#collapse{{$index}}-{{item.id}}" ng-click="filterByCategory($event, $index, item)">
+        	<h4 class="panel-title">
+				{{item.name}}
+			</h4>
         <span ng-if="item.submenu.length >0 " class="component-collapse-icon glyphicon glyphicon-chevron-right pull-right" ></span>
         <span ng-if="item.name == 'My orders'" class="component-collapse-icon glyphicon glyphicon-shopping-cart  pull-right" ></span>
         <span ng-if="item.name == 'Profile'" class="component-collapse-icon glyphicon glyphicon-user pull-right" ></span>

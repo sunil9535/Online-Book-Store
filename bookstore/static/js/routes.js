@@ -3,7 +3,18 @@ app.config(function($routeProvider){
 		redirectTo:'/home'
 	}).
 	when("/home",{
-		templateUrl:'static/js/components/store/templates/bookstore.html',
+		templateUrl:'static/js/components/store/templates/popular-books.html',
 		controller:"storeCtrl"
-	})
+	}).
+	when("/store/books",{
+		templateUrl:'static/js/components/books/templates/booklist.html',
+		controller:"booksCtrl"
+	}).
+	when("/store/books/:id",{
+		templateUrl:'static/js/components/books/templates/booklist.html',
+		controller:"booksCtrl"
+	}).
+    otherwise({
+        redirectTo: '/'
+    });
 });

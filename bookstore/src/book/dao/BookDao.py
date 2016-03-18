@@ -35,4 +35,22 @@ class BookDao(DataAccessor):
             return book_list
         except Exception as e:
             print(e,"get_popular_books")
+            
+            
+    def get_all_books(self):
+        try:
+            query =("select books.title ,books.category_id, category.name from books left join category on books.category_id = category.cat_id;")
+            book_list = super(BookDao,self).read(query= query)
+            return book_list
+        except Exception as e:
+            print(e,"get_all_books")
+            
+    def get_books_by_category(self, parent_cat_id ):
+        try:
+            query =("select books.title ,books.category_id, category.name from books left join category on books.category_id = category.cat_id where books.category_id = {};").format(parent_cat_id)
+            book_list = super(BookDao,self).read(query= query)
+            return book_list
+        except Exception as e:
+            print(e,"get_all_books")
+
         
