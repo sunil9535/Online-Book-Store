@@ -18,7 +18,6 @@ class DataAccessor(object):
         Constructor
         '''
         self.connection  =  DBConnect().get_connection()
-        self.connection.autocommit(True)
         
     def read(self, table= None, columns =None, where_row=None,query= None):
         with closing(self.connection.cursor()) as cursor:

@@ -32,9 +32,7 @@ class PopularBookApi(Resource):
     '''
     classdocs
     '''
-    def __init__(self):
-        self.connection = DBConnect().get_connection()
-        self.connection.autocommit(True)
+   
     def get(self):
         try:
             return jsonify({"books":dao.get_popular_books(),"type":"popular"})

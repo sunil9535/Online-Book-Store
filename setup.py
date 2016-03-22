@@ -20,7 +20,8 @@ setup(
         'virtualenv>=14.0.3',
         'Flask>=0.10.1',
         'flask-restful>=0.3.5',
-        'pymysql>=0.7.1'
+        'pymysql>=0.7.1',
+        'pymongo>=3.2.3'
     ]
       
 )

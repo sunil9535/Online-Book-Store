@@ -13,24 +13,43 @@ class BookDao(DataAccessor):
     '''
     classdocs
     '''
-
+    __collection__ = "books"
 
     def __init__(self):
         '''
         Constructor
         '''
         super(BookDao,self).__init__()
-       
+        #self.collection = self.database[self.__collection__]
         
     def get_popular_books(self):
+        book_list = list()
         try:
-            query =("select isbn, title, authors, publisher, DATE_FORMAT(yop,'%Y-%m-%d') as yop, available_copies, price, format, keywords, subject,image_loc,sub_cat_id ,category_id,sub_category.name as sub_name,category.name as name "
-                    "from books "
-                    "left join ("
-                    "Sub_category left join Category "
-                    "on Sub_Category.sub_cat_id=Category.cat_id) "
-                    "on books.category_id=sub_category.sub_cat_id "
-                    "where books.ratings<={} and books.ratings>{};").format(BookConfig.popular_max_rt, BookConfig.popular_min_rt)
+            query =( "select isbn, title, authors, publisher, DATE_FORMAT(yop,'%Y-%m-%d') as yop, available_copies, price, format, keywords, subject,image_loc, category_id,cat.name "
+                     "from books"
+                     " left join (category as cat left join Category as subcat on cat.cat_id = subcat.parent) "
+                     "on books.category_id = cat.cat_id"
+                     " where books.ratings<={} and books.ratings> {};").format(BookConfig.popular_max_rt, BookConfig.popular_min_rt)
+            '''self.collection.aggregate([{"$lookup":{
+                "from":"categories",
+                "localField":"category_id",
+                "foreignField":"_id",
+                "as":"category"
+                    }
+                                                 },
+                    {
+                     "$out":"booksWithCategory"
+                    }
+            ]);
+            
+            cursor = self.database.booksWithCategory.aggregate([{"$lookup":{"from":"ratings","localField":"isbn","foreignField":"isbn", "as":"booksWithratings"}},{"$out":"booksWithRatings"}])
+            cursor = self.database.booksWithRatings.find()
+            while True:
+                try: 
+                    
+                    book_list.append(cursor.next())
+                except StopIteration:
+                    break'''
             book_list = super(BookDao,self).read(query= query)
             return book_list
         except Exception as e:
