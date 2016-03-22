@@ -70,7 +70,7 @@ class BookDao(DataAccessor):
                     "from books"
                     " inner join category cc "
                     "on cc.cat_id = books.category_id "
-                    "where cc.parent={};").format(category_id)
+                    "where cc.parent={} or category_id = {};").format(category_id, category_id)
             book_list = super(BookDao,self).read(query= query)
             return book_list
         except Exception as e:
