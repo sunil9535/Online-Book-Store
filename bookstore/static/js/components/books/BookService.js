@@ -1,6 +1,7 @@
 angular.module("bookStore").service("BookService",function($q, $http, DataService){
 	endPoint="books"
 		dataService= DataService
+		bookRepository = []
 	/*
 	 	@param offset: page number: for example if offset is 0 records fetched will be 0 - 4 ,if offset is 1 records fetched will be 5- 9
 	 	@return: promise for api 
@@ -22,7 +23,8 @@ angular.module("bookStore").service("BookService",function($q, $http, DataServic
 	
 	this.getBookBycategory = function(category){
 		var deferred = $q.defer();
-		dataService.getBookBycategory(category).then(function(response){
+		dataService.getBooksByCategory(category).then(function(response){
+			bookRepository = response.data;
 			if(response){
 				deferred.resolve(response);
 			}
@@ -31,6 +33,10 @@ angular.module("bookStore").service("BookService",function($q, $http, DataServic
 			}
 		});
 		return deferred.promise;
+	}
+	
+	this.getBookRepository= function(){
+		return this.bookRepository
 	}
 
 

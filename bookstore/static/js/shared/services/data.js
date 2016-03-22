@@ -30,13 +30,14 @@ angular.module("bookStore").factory("DataService",function($q, $http){
  	@description :this method will get the records from audit log according to the offset
  	
 	 */
-	var getBookBycategory =  function(category){
-		return $http.get(config.baseUrl+ 'books/getBooksByCategory',category,{headers: {'Content-Type': 'application/json'}});
+	var getBooksByCategory =  function(category){
+		return $http.post(config.baseUrl+ 'books/getBooksByCategory',angular.toJson(category),{headers: {'Content-Type': 'application/json'}});
 	}
 	
 	return {
 		"getPopularBooks":getPopularBooks,
-		"getAllCategories":getAllCategories
+		"getAllCategories":getAllCategories,
+		"getBooksByCategory":getBooksByCategory
 	}
 
 })

@@ -10,7 +10,7 @@ app.config(function($routeProvider){
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
 	}).
-	when("/store/books/:id",{
+	when("/store/books/category/:categoryid",{
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
 	}).

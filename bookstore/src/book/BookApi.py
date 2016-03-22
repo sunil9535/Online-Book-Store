@@ -10,7 +10,7 @@ from bookstore.src.Database.DBConnection import DBConnect
 from contextlib import closing
 from ..models.core.business.books.BookRepository import BookRepository
 from bookstore.src.book.dao.BookDao import BookDao
-from flask import jsonify
+from flask import jsonify, request
 
 dao = BookDao()
 class BookApi(Resource):
@@ -46,8 +46,8 @@ class BookByCategoryApi(Resource):
     def __init__(self):
         self.connection = DBConnect().get_connection()
         self.connection.autocommit(True)
-    def get(self):
+    def post(self):
         try:
-            return jsonify({"books":dao.get_popular_books(),"type":"popular"})
+            return jsonify({"books":dao.get_books_by_category(request.get_json()),"type":"popular"})
         except Exception as e:
             print("popular_book_api",e )
