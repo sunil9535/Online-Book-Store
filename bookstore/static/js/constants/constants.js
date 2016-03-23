@@ -1,25 +1,25 @@
 angular.module("bookStore").constant("SideMenu",  {"name":"Menu", "submenu":[{
 	"name" : "Menu",
 	"submenu" : [],
-	"showSubMenu" : false
+	"root" : true
 }, {
 	"name" : "Categories",
 	"submenu" : [],
-	"showSubMenu" : true
+	"root" : true
 }, {
 	"name" : "My orders",
 	"submenu" : [],
-	"showSubMenu" : false
+	"root" : false
 }, {
 	"name" : "Profile",
 	"submenu" : [],
-	"showSubMenu" : false
+	"root" : false
 }, {
 	"name" : "Gift Cards",
 	"submenu" : [],
-	"showSubMenu" : false
+	"root" : false
 }, {
 	"name" : "Wish list",
 	"submenu" : [],
-	"showSubMenu" : false
+	"root" : false
 }]} )

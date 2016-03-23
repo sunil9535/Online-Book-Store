@@ -1,8 +1,8 @@
 app.config(function($routeProvider){
 	$routeProvider.when("/",{
-		redirectTo:'/home'
+		redirectTo:'/bookstore'
 	}).
-	when("/home",{
+	when("/bookstore",{
 		templateUrl:'static/js/components/store/templates/popular-books.html',
 		controller:"storeCtrl"
 	}).
@@ -10,9 +10,29 @@ app.config(function($routeProvider){
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
 	}).
-	when("/store/books/category/:categoryid",{
+	when("/bookstore/books/category/:categoryid",{
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
+	}).
+	when("/bookstore/cart",{
+		templateUrl:'',
+		controller:"cartCtrl"
+	}).
+	when("/bookstore/about",{
+		templateUrl:'',
+		controller:"aboutCtrl"
+	}).
+	when("/user/profile",{
+		templateUrl:'',
+		controller:"profileCtrl"
+	}).
+	when("/orders",{
+		templateUrl:'',
+		controller:"orderCtrl"
+	}).
+	when("/bookstore/contact",{
+		templateUrl:'',
+		controller:"contactCtrl"
 	}).
     otherwise({
         redirectTo: '/'

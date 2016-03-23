@@ -16,15 +16,7 @@ angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryS
 				populateCategories(res.data.categoryList)
 		})
 	}
-	$scope.filterByCategory= function(event, index, category){
-		arr= {"cat_id":category.id , sub_cat_ids:[] }
-		angular.forEach(category.submenu,function(value, key){ 
-			arr.sub_cat_ids.push(value.id)
-		})
-		BookService.getBookBycategory(arr).then(function(res){
-			$location.path("/store/books/byCategory/"+arr.cat_id)
-		})
-}
+	
 	init()
 
 }])
@@ -43,11 +35,14 @@ angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryS
 }).controller('collapseListCtrl',[ '$scope', 'SideMenu', 'BookService','$location',function($scope, SideMenu, BookService, $location) {
 	
 	$scope.filterByCategory= function(event, index, category){
+		if(this.item.root && this.item.root== true){
+			return;
+		}
 		arr= {"cat_id":category.id , sub_cat_ids:[] }
 		angular.forEach(category.submenu,function(value, key){ 
 			arr.sub_cat_ids.push(value.id)
 		})
-		$location.path("/store/books/category/"+arr.cat_id)
+		$location.path("/bookstore/books/category/"+arr.cat_id)
 	}
 	
 } ])
