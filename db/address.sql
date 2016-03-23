@@ -13,4 +13,4 @@ INSERT INTO Orders(timestamp,login_id, status) VALUES ("2016-12-12 00:00:00", "a
 INSERT INTO order_detail(ISBN, item_id,Order_id,total, discount,shipment_id) VALUES("978-0143125471","gffg546456",1,34.00, 20,1 );
 
 
-INSERT INTO cart(cart_id, item_id, total, count) VALUES ("Asdg456","gffg546456",400.56,4);
+INSERT INTO cart(cart_id, item_id, total, count, user_id) VALUES ("Asdg456","gffg546456",400.56,4,"adit21");

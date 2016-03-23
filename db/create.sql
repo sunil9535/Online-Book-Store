@@ -87,10 +87,12 @@ CREATE TABLE address (
 
 create table cart(
 	cart_id varchar(10) not null primary key,
+	user_id char(20) not null,
 	item_id varchar(10) not null,
 	total double default 0.00,
 	count int not null default 0,
-	foreign key (item_id) references book_item(item_id)
+	foreign key (item_id) references book_item(item_id),
+	foreign key (user_id) references customer(login_id)
 	
 );
 
