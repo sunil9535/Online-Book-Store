@@ -6,5 +6,5 @@ Created on 15-Mar-2016
 min_ratings= 0
 max_ratings = 20
 
-popular_min_rt= 10
-popular_max_rt = 20
+popular_min_rt= 5
+popular_max_rt = 10

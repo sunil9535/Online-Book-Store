@@ -36,9 +36,11 @@ CREATE TABLE Order_detail(
 	item_id varchar(10) not null,
 	Order_id int NOT NULL,
 	total double(5,2),
+	shipment_id int not null,
 	discount int default 0,
 	FOREIGN KEY (item_id) REFERENCES book_item(item_id),
 	FOREIGN KEY (ISBN) REFERENCES Books(ISBN) ON DELETE CASCADE,
+	FOREIGN KEY (shipment_id) REFERENCES shipment(id),
 	FOREIGN KEY (Order_id) REFERENCES Orders(Order_id) ON DELETE CASCADE);
 	
 CREATE TABLE book_item(
@@ -51,7 +53,7 @@ CREATE TABLE book_item(
 	FOREIGN KEY (ISBN) REFERENCES Books(ISBN) ON DELETE CASCADE );
 
 CREATE TABLE shipment(
-	id int(11) not null auto_increment,
+	id int(11) not null auto_increment primary key,
 	address_id int not null,
 	type ENUM("Home Delivery","Office Delivery","Pick up at location"),
 	promised_date Timestamp not null,
@@ -89,7 +91,7 @@ create table cart(
 	cart_id varchar(10) not null,
 	user_id char(20) not null,
 	item_id varchar(10) not null,
-	total double default 0.00,
+	total double(4,2) not null,
 	count int not null default 0,
 	foreign key (item_id) references book_item(item_id),
 	foreign key (user_id) references customer(login_id)

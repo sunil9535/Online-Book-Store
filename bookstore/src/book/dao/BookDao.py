@@ -25,11 +25,11 @@ class BookDao(DataAccessor):
     def get_popular_books(self):
         book_list = list()
         try:
-            query =( "select isbn, title, authors, publisher, DATE_FORMAT(yop,'%Y-%m-%d') as yop, available_copies, price, format, keywords, subject,image_loc, category_id,cat.name "
+            query =( "select books.isbn, title, authors, publisher, DATE_FORMAT(yop,'%Y-%m-%d') as yop, available_copies, price, format, keywords, subject,image_loc, category_id "
                      "from books"
-                     " left join (category as cat left join Category as subcat on cat.cat_id = subcat.parent) "
-                     "on books.category_id = cat.cat_id"
-                     " where books.ratings<={} and books.ratings> {};").format(BookConfig.popular_max_rt, BookConfig.popular_min_rt)
+                     " left join rating"
+                     " on rating.isbn = books.isbn"
+                     " where rating.score <={} and rating.score> {};").format(BookConfig.popular_max_rt, BookConfig.popular_min_rt)
             '''self.collection.aggregate([{"$lookup":{
                 "from":"categories",
                 "localField":"category_id",

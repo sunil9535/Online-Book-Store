@@ -3,8 +3,7 @@ INSERT INTO address (country, state,city, zipcode, building, room_no, street) VA
 
 INSERT INTO shipment (address_id, type,promised_date, delivery_date) VALUES(1, "Home Delivery", "2016-12-10 12:12:12", "2016-12-10 12:12:10");
 
-INSERT INTO book_item(ISBN, quantity, item_id, price, total) VALUES("978-1401312855",4,"gffg546456", 8.42,34.00),("978-0143125471",4,"d56756", 9.49,
-), ("978-0143125471",2,"d8564hf", 9.49,18.00);
+INSERT INTO book_item(ISBN, quantity, item_id, price, total) VALUES("978-1401312855",4,"gffg546456", 8.42,34.00),("978-0143125471",4,"d56756", 9.49, 45.00),("978-0143125471",2,"d8564hf",9.49,18.00);
 
 
 
