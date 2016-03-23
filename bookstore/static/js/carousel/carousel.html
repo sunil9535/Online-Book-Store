@@ -10,7 +10,14 @@
 						<div class="panel-body">
 							<img  class="img-responsive book-cover" ng-src="{{getImageLocation(item.image_loc)}}">
 						</div>
-					<div class="panel-footer">by {{item.authors}}</div>
+					<div class="panel-footer price">
+				Price
+				<span>{{item.price| currency:"&#8377;"}}</span>
+			</div>
+			<div class="panel-footer">
+				Add to Cart
+				<div class="glyphicon glyphicon-shopping-cart"></div>
+			</div>
 			</div>
 			
 		</div>

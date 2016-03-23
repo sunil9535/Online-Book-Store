@@ -34,10 +34,21 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		return $http.post(config.baseUrl+ 'books/getBooksByCategory',angular.toJson(category),{headers: {'Content-Type': 'application/json'}});
 	}
 	
+	/*
+ 	@param offset: page number: for example if offset is 0 records fetched will be 0 - 4 ,if offset is 1 records fetched will be 5- 9
+ 	@return: promise for api 
+ 	@description :this method will get the records from audit log according to the offset
+ 	
+	 */
+	var getCartByUser =  function(userId){
+		return $http.post(config.baseUrl+ 'cart/getCartByUser',angular.toJson({"userId":userId}),{headers: {'Content-Type': 'application/json'}});
+	}
+	
 	return {
 		"getPopularBooks":getPopularBooks,
 		"getAllCategories":getAllCategories,
-		"getBooksByCategory":getBooksByCategory
+		"getBooksByCategory":getBooksByCategory,
+		"getCartByUser":getCartByUser
 	}
 
 })

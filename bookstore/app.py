@@ -7,6 +7,7 @@ from flask import Flask, redirect, render_template
 from flask.blueprints import Blueprint
 from .src.book import book_manager
 from .src.category import category
+from bookstore.src.cart import cart_manager
 app= Flask(__name__)
 bookstore= Blueprint("bookstore",__name__)
 
@@ -19,3 +20,4 @@ def index():
 app.register_blueprint(bookstore)
 app.register_blueprint(book_manager)
 app.register_blueprint(category)
+app.register_blueprint(cart_manager)

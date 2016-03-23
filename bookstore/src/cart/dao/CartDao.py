@@ -11,13 +11,13 @@ class CartDao(DataAccessor):
     '''
 
 
-    def __init__(self, params):
+    def __init__(self):
         '''
         Constructor
         '''
         super(CartDao,self).__init__()
         
     def get_cart_by_user(self, userid):
-        query = ("select cart_id, item_id,user_id, total, SUM(count) as count from cart where user_id = {}").format(userid)
+        query = ("select cart_id, item_id,user_id, total, CAST(SUM(count) as signed) as count from cart where user_id = '{}'").format(userid)
         cart = super(CartDao,self).read(query= query)
-        return cart
+        return cart[0]

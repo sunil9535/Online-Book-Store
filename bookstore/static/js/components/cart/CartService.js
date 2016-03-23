@@ -8,9 +8,9 @@ angular.module("bookStore").service("CartService",function($q, $http, DataServic
 	 	@description :this method will get the records from audit log according to the offset
 	 	
 	 */
-	this.getPopularBooks =  function(){
+	this.getCartByUser =  function(userId){
 		var deferred = $q.defer();
-		dataService.getPopularBooks().then(function(response){
+		dataService.getCartByUser(userId).then(function(response){
 			if(response){
 				deferred.resolve(response);
 			}
