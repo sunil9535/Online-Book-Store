@@ -86,7 +86,7 @@ CREATE TABLE address (
 );
 
 create table cart(
-	cart_id varchar(10) not null primary key,
+	cart_id varchar(10) not null,
 	user_id char(20) not null,
 	item_id varchar(10) not null,
 	total double default 0.00,
