@@ -5,7 +5,11 @@ from bookstore.src.config import DatabaseConfig
 class DBConnect(object):
     _instance = None
     connection = None
-   
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(DBConnect, cls).__new__(
+                                cls, *args, **kwargs)
+        return cls._instance
     def __init__(self):
         '''Returns a database connection/handle given the dsn
     

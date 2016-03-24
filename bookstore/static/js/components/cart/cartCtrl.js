@@ -1,7 +1,7 @@
-angular.module("bookStore").controller("cartCtrl", ['$scope','CartService','$routeParams',function($scope, BookService, $routeParams){
+angular.module("bookStore").controller("cartCtrl", ['$scope','CartService','$routeParams',function($scope, CartService, $routeParams){
 	var init= function(){
-		BookService.getBookBycategory(parseInt($routeParams.categoryid)).then(function(res){
-			$scope.bookList = res.data.books;
+		CartService.getCartWithDetails().then(function(res){
+			$scope.cartData = res.data.cart
 		})
 	}
 	$scope.getImageLocation= function(location){

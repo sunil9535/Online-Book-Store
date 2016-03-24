@@ -1,0 +1,42 @@
+.cart-container{
+	.row{
+		.table {
+			thead{
+			 	background: indianred;
+    			color: white;
+    			font-size: 18px;
+				tr{
+					
+				}
+			}
+			tbody{
+				.cart-item{
+					.product{}
+					.quantity{}
+					.price{}
+					.total{}
+					.total,.remove-item, .price{
+						text-align:center;
+					}
+					.table-footer{
+						.btn-checkout{
+							background-color: crimson;
+						}
+					}
+					.remove-item{
+						.btn{
+							    background-color: #B00000;
+							    background-color: white;
+    							color: darkred;
+    							border:none;
+						}
+					}
+				}
+				.subtotal{}
+				.shiiping-cost{}
+				.total{}
+				.table-footer{}
+			}
+		}
+	}
+}

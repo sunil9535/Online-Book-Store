@@ -15,7 +15,7 @@ app.config(function($routeProvider){
 		controller:"booksCtrl"
 	}).
 	when("/bookstore/cart",{
-		templateUrl:'',
+		templateUrl:'static/js/components/cart/templates/cart.html',
 		controller:"cartCtrl"
 	}).
 	when("/bookstore/about",{
