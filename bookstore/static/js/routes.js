@@ -34,6 +34,14 @@ app.config(function($routeProvider){
 		templateUrl:'',
 		controller:"contactCtrl"
 	}).
+	when("/checkout/shipment",{
+		templateUrl:'static/js/components/checkout/shipment/shipment.html',
+		controller:"shipmentCtrl"
+	}).
+	when("/checkout/payment",{
+		templateUrl:'static/js/components/checkout/payment/payment.html',
+		controller:"paymentCtrl"
+	}).
     otherwise({
         redirectTo: '/'
     });
