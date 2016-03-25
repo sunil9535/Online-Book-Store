@@ -14,8 +14,14 @@
     background-color: #292c2f; }
     .navbar .container-fluid .navbar-collapse .navbar-nav {
       float: right; }
-      .navbar .container-fluid .navbar-collapse .navbar-nav li a {
-        font-size: 17px; }
+      .navbar .container-fluid .navbar-collapse .navbar-nav a {
+        padding-bottom: 8px;
+        padding-top: 8px;
+        background-color: #20B2AA;
+        color: white;
+        border: 1px solid #1a8299;
+        line-height: 19px;
+        cusror: pointer; }
 
 @font-face {
   font-family: 'Cookie';

@@ -11,18 +11,26 @@
 			}
 			tbody{
 				.cart-item{
-					.product{}
+					.product{
+						.media {
+							
+						}
+					}
+					td {
+						.media{
+						.media-left{
+							width: 20%;
+    						max-width: 100px;
+							}
+						}
+					}
 					.quantity{}
 					.price{}
 					.total{}
 					.total,.remove-item, .price{
 						text-align:center;
 					}
-					.table-footer{
-						.btn-checkout{
-							background-color: crimson;
-						}
-					}
+					
 					.remove-item{
 						.btn{
 							    background-color: #B00000;
@@ -35,7 +43,18 @@
 				.subtotal{}
 				.shiiping-cost{}
 				.total{}
-				.table-footer{}
+				.table-footer{
+						td{
+							.btn-checkout{
+								background-color: #008080;
+							}
+							.btn-continue{
+									    color: white;
+								    background-color: #C0227C;
+							}
+						}
+						
+					}
 			}
 		}
 	}

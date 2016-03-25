@@ -21,7 +21,8 @@ setup(
         'Flask>=0.10.1',
         'flask-restful>=0.3.5',
         'pymysql>=0.7.1',
-        'pymongo>=3.2.3'
+        'pymongo>=3.2.3',
+        'jsonpickle>= 0.9.3'
     ]
       
 )
