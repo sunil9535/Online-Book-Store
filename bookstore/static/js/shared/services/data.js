@@ -52,13 +52,21 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 	
 		return $http.post(config.baseUrl+ 'cart/getCartDetails',angular.toJson({}),{headers: {'Content-Type': 'application/json'}});
 	}
+	
+	var saveAddress= function(data){
+		return $http.post(config.baseUrl+ 'shipment/addAddress',angular.toJson(data),{headers: {'Content-Type': 'application/json'}})
+	}
+	var pay= function(){
+		return $http.post(config.baseUrl+ 'payment/processPayment',{},{headers: {'Content-Type': 'application/json'}})
+	}
 	return {
 		"getPopularBooks":getPopularBooks,
 		"getAllCategories":getAllCategories,
 		"getBooksByCategory":getBooksByCategory,
 		"getCartByUser":getCartByUser,
 		"addItemToCart":addItemToCart,
-		"getCartWithDetails":getCartWithDetails
+		"getCartWithDetails":getCartWithDetails,
+		"saveAddress":saveAddress
 	}
-
+	
 })

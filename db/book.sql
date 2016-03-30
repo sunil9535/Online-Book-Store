@@ -28,7 +28,13 @@ INSERT INTO books (ISBN, Title, Authors, Publisher, Yop, Available_copies, Price
 ,('978-1936976027','How Not to Be a Dick: An Everyday Etiquette Guide','Meghan Doherty','Zest Books','2013-12-12',2,12.89,'Hardcover', 'Teens','Social Issues',7,'bookstore/static/assets/coverimages/76809.png')
 ,('978-1477468524','Unicorns Are Jerks: a coloring book exposing the cold, hard, sparkly truth','Theo Nicole Lorenz', 'CreateSpace Independent Publishing Platform','2015-12-12',6,6.99,'Paperback', 'Humor','Cold Truth',6,'bookstore/static/assets/coverimages/76809.png');
 
-
+INSERT INTO books (ISBN, Title, Authors, Publisher, Yop, Available_copies, Price, Format, Keywords, Subject,Category_id,image_loc) VALUES('978-1401312455','The Time Keeper','Mitch Albom','Hachette Books','2013-12-12',5,8.42,'Paperback','Time, Christian','Religion',9,'bookstore/static/assets/coverimages/12343.png')
+,('978-0143123371','The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics','Daniel James Brown','Penguin Books','2014-12-12,3',3,9.49,'Paperback','Canoeing','Sports & Outdoors',10,'bookstore/static/assets/coverimages/12343.png')
+,('978-1476762932','The Time Traveler"s Wife','Audrey Niffenegger', 'Scribner','2004-12-12',6, 14.28 , 'Paperback', 'Time Travel', 'Science Fiction',9,'bookstore/static/assets/coverimages/45656.png')
+,('978-1400038805','The Closing of the Western Mind: The Rise of Faith and the Fall of Reason','Charles Freeman','Vintage', '2005-12-12', 4,13.32,'Paperback', 'Culture','Religion',10,'bookstore/static/assets/coverimages/45656.png')
+,('978-0452789030','The Sign: The Shroud of Turin and the Secret of the Resurrection','Thomas de Wesselow','Plume','2012,10,16',4,12.00,'Hardcover','Christian','History',9,'bookstore/static/assets/coverimages/67878.png')
+,('978-0465784725','The Magic of Math: Solving for x and Figuring Out Why','Arthur Benjamin','Basic Books','2015-12-12',2,14.84,'Hardcover','Mathematics','History',10,'bookstore/static/assets/coverimages/67878.png')
+,('978-1848160930','Time, Space, Stars & Man: The Story of the Big Bang','Michael M. Woolfson','World Scientific Publishing Company','2009-12-12',4,83.05,'Paperback','Cosmology','Science', 9,'bookstore/static/assets/coverimages/67878.png');ssss
 
 
 

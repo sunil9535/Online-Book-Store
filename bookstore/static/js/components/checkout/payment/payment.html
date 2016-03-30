@@ -1,6 +1,8 @@
 <div class="container">
+	<div ng-include src="'/static/js/shared/modal/modal.html'"></div>
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-lg-4 col-lg-offset-4">
+        <form name="creditCard">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -19,15 +21,15 @@
                         <label for="cardNumber">
                             CARD NUMBER</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                            <input type="text" ng-model="payment.cc_num" class="form-control" id="cardNumber" placeholder="Valid Card Number"
                                 required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-credit-card"></span></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-7 col-md-7">
                             <div class="form-group">
-                                <label for="expityMonth">
+                                <label style="width: 100%;" for="expityMonth">
                                     EXPIRY DATE</label>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
                                     <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
@@ -48,11 +50,12 @@
                 </div>
             </div>
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>{{payment.total}}</span> Final Payment</a>
                 </li>
             </ul>
             <br/>
-            <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+           <button class="btn btn-default" ng-click="pay()"><a style="text-decoration:none;" class="btn btn-success btn-lg btn-block" role="button">Pay</a></button>
+            </form>
         </div>
     </div>
 </div>

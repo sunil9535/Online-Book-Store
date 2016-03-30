@@ -1,6 +1,6 @@
-function shipment(address, type, promisedDate, deliveredDate){
+function Shipment(address, contact, promisedDate, deliveredDate ){
 	this.address = address
-	this.type = type
+	this.contact = contact || null
 	this.promisedDate = promisedDate
 	this.deliveredDate = deliveredDate || null
 }

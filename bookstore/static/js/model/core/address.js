@@ -1,5 +1,5 @@
-function Address(method, city, state, zipcode, street, building, room_no){
-	this.country = country
+function Address( city, state, zipcode, street, building, room_no){
+	this.country = "india"
 	this.city = city
 	this.state = state
 	this.zipcode = zipcode
