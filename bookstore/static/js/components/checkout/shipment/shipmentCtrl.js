@@ -1,6 +1,8 @@
 angular.module("bookStore").controller("shipmentCtrl", ['$scope','CheckoutService','$routeParams','$location','CartService',function($scope, CheckoutService, $routeParams, $location, CartService){
 	var init= function(){
 		$scope.states = ["Maharashtra","Hariyana","Gujarat","Goa"];
+		$scope.countries= ["India","USA","Australia","Pakistan"] 
+		$scope.cities=["Mumbai","Surat","kalkatta","Pune","Banglore","Hyderabad"]
 		$scope.shipment= {}
 		
 	}
