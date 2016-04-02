@@ -1,5 +1,23 @@
 <div class="container">
-	<div ng-include src="'/static/js/shared/modal/modal.html'"></div>
+	<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Thank you for shopping with us.</h4>
+      </div>
+      <div class="modal-body">
+        <p>Your shipment will be arriving soon!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     <div class="row">
         <div class="col-xs-12 col-lg-4 col-lg-offset-4">
         <form name="creditCard">
@@ -8,12 +26,7 @@
                     <h3 class="panel-title">
                         Payment Details
                     </h3>
-                    <div class="checkbox pull-right">
-                        <label>
-                            <input type="checkbox" />
-                            Remember
-                        </label>
-                    </div>
+                    
                 </div>
                 <div class="panel-body">
                     <form role="form">
@@ -21,29 +34,35 @@
                         <label for="cardNumber">
                             CARD NUMBER</label>
                         <div class="input-group">
-                            <input type="text" ng-model="payment.cc_num" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                            <input name="cc_num" ng-pattern="/^(?:3[47][0-9]{13})$/" type="text" ng-model="payment.cc_num" class="form-control" id="cardNumber" placeholder="Valid Card Number"
                                 required autofocus />
                             <span class="input-group-addon"><span class="glyphicon glyphicon-credit-card"></span></span>
+
                         </div>
+                        <p class="help-block" ng-show="creditCard.cc_num.$invalid && creditCard.cc_num.$pristine">enter a valid credit card number</p>
                     </div>
                     <div class="row">
                         <div class="col-xs-7 col-md-7">
                             <div class="form-group">
-                                <label style="width: 100%;" for="expityMonth">
+                                <label style="width: 100%;" for="inputExpMonth">
                                     EXPIRY DATE</label>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                    <select required name="inputExpMonth" id="inputExpMonth" ng-model="creditCard.expMonth" class="form-control selectpicker" ng-options="month for month in expMonths"></select>
+                                    
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
-                            </div>
+                                    <select required name="inputExpYear" id="inputExpYear" ng-model="creditCard.expYear" class="form-control selectpicker" ng-options="yr for yr in expYear"></select>
+                                    
+                               </div>
+                        </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
-                                <label for="cvCode">
+                                <label for="inputCvv">
                                     CV CODE</label>
-                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                <input type="password" ng-minlength="3" ng-maxlength="3" ng-pattern="/^[0-9]{1,10}$/" name="inputCvv" class="form-control" id="inputCvv" placeholder="CV" required />
                             </div>
+                            <p class="help-block" ng-show="creditCard.inputCvv.$invalid && creditCard.inputCvv.$pristine">Enter a valid CVV number</p>
                         </div>
                     </div>
                     </form>
@@ -54,7 +73,7 @@
                 </li>
             </ul>
             <br/>
-           <button class="btn btn-default" ng-click="pay()"><a style="text-decoration:none;" class="btn btn-success btn-lg btn-block" role="button">Pay</a></button>
+           <button class="btn btn-default" ng-click="pay()" ng-disabled="creditCard.$invalid"><a style="text-decoration:none;" class="btn btn-success btn-lg btn-block" role="button">Pay</a></button>
             </form>
         </div>
     </div>
