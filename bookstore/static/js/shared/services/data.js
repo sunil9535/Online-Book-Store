@@ -56,8 +56,8 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 	var saveAddress= function(data){
 		return $http.post(config.baseUrl+ 'shipment/addAddress',angular.toJson(data),{headers: {'Content-Type': 'application/json'}})
 	}
-	var pay= function(){
-		return $http.post(config.baseUrl+ 'payment/processPayment',{},{headers: {'Content-Type': 'application/json'}})
+	var pay= function(data){
+		return $http.post(config.baseUrl+ 'payment/processPayment',data,{headers: {'Content-Type': 'application/json'}})
 	}
 	return {
 		"getPopularBooks":getPopularBooks,
@@ -66,7 +66,8 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		"getCartByUser":getCartByUser,
 		"addItemToCart":addItemToCart,
 		"getCartWithDetails":getCartWithDetails,
-		"saveAddress":saveAddress
+		"saveAddress":saveAddress,
+		"pay":pay
 	}
 	
 })
