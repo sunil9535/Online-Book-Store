@@ -32,7 +32,7 @@ class ShipmentDao(DataAccessor):
             super(ShipmentDao,self).read(query=qry_update)
             return self.address_id
         except Exception as e:
-            pass    
+            print("exception in address",e)    
             
             
     def add_user_shipment(self, type="Home delivery", promised_date=None, delivery_date = None):        

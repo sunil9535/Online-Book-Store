@@ -1,0 +1,31 @@
+<div class="container-fluid order-dashboard">
+	<article class="row order-main-header">
+		<div class="col-lg-8 order-title">Your Placed orders are below..</div>
+		<div class="col-lg-4 order-month-placed">
+			<div class="dropdown" >
+				<button class="btn btn-black" id="order-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					orders placed in 
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="order-dropdown">
+					<li ><a href="#order/getByMonth/2">last 2 months</a></li>
+					<li ><a href="#order/getByMonth/2">last 6 months</a></li>
+					<li ><a href="#order/getByMonth/2">all orders</a></li>
+				</ul>
+			</div>
+		</div>
+	</article>
+	<div class="row order-all">
+		<div class="col-lg-12">
+			<div class="row order-header clearfix">
+				<div class="col-lg-8">hedaer</div>
+				<div class="col-lg-4 text-right order-detail-btn">
+					<button class="btn btn-black" >
+						<a href="order/2342452">Order Details</a>
+					</button>
+				</div>
+			</div>
+		</div>
+		<section class="row order-product_info clearfix"></section>
+	</div>
+</div>

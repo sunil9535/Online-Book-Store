@@ -1,4 +1,4 @@
-angular.module("bookStore").controller("paymentCtrl", ['$scope','PaymentService','CheckoutService','$routeParams','CartService','$uibModal',function($scope, PaymentService,CheckoutService, $routeParams, CartService, $uibModal){
+angular.module("bookStore").controller("paymentCtrl", ['$scope','$rootScope','PaymentService','CheckoutService','$routeParams','CartService','$uibModal',function($scope,$rootScope, PaymentService,CheckoutService, $routeParams, CartService, $uibModal){
 	var init= function(){
 		$scope.cardValidator = /^(?:3[47][0-9]{13})$/; 
 		$scope.payment = {
@@ -29,6 +29,7 @@ angular.module("bookStore").controller("paymentCtrl", ['$scope','PaymentService'
 		 	data = res.data
 			//$scope.open('small',"Success: Congratulations you have successfully placed an order with us your order id is");
 			$scope.open("#myModal","Congratulations! you have successfully placed an order for the following item order id is:"+data.order_id + "\nyour item will be arriving by "+data.pd, "Sucess! Thank you for shopping with us.")
+			$rootScope.$broadcast("refreshCart");
 		})
 	}
 	init()

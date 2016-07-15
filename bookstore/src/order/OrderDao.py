@@ -19,6 +19,17 @@ class OrderDao(DataAccessor):
         '''
         super(OrderDao,self).__init__()
         self.order_id = None
+    
+    def get_order_details(self):
+        query=("select od.isbn "
+               "from orders as o "
+               "join order_detail as od "
+               "on o.order_id = od.order_id "
+               "join book_item as bi "
+               "on od.item_id = bi.item_id "
+               "join shipment as s "
+               "on od.shipment_id = s.id where o.login_id ={};").format(userid)
+        result= super(OrderDao,self).read(query= query)
     def insert_order_book(self,book_items =[] ):
         
         for item in book_items:

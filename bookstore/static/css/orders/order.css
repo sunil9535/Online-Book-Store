@@ -1,0 +1,12 @@
+.order-dashboard .order-main-header .order-title {
+  font-size: x-large; }
+.order-dashboard .order-all .order-header .order-detail-btn .btn-black a {
+  color: white;
+  text-decoration: none; }
+
+.btn-black, .btn-black:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333; }
+
+/*# sourceMappingURL=order.css.map */

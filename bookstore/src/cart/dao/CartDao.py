@@ -28,6 +28,10 @@ class CartDao(DataAccessor):
                  "on cart.item_id = book_item.item_id "
                  "where user_id= '{}'").format(userid)
         result = super(CartDao,self).read(query= query)
+        if len(result) == 0:
+            query= ("select * from cart where user_id = '{}'").format(userid)
+            result = super(CartDao,self).read(query= query)
+            return Cart(cart_id= result[0]['cart_id'], user_id= userid, items=[],total=0.0, count=0)
         count = 0
         cart_items = []
         total= 0.0
@@ -54,5 +58,19 @@ class CartDao(DataAccessor):
             q2= ("insert into book_item values('{}',{},'{}', {}, {})").format(book['isbn'],book['quantity'],item_id,book['price'],book['quantity']*book['price'])
             super(CartDao,self).read(query= q2)
 
-            q3= ("insert into cart values('{}','{}','{}', {}, {})").format(data['cart_id'],userid,item_id,book['quantity']*book['price'], book['quantity'])
+            q3= ("insert into cart values('{}','{}',{}, {}, '{}')").format(data['cart_id'],userid,float(book['quantity']*book['price']), book['quantity'],item_id)
             super(CartDao,self).read(query= q3)
+            
+    def delete_items_from_cart(self,items= [], delete_all= True, cart_id=None):
+        for item in items:
+            query= ("delete from cart"
+                    " where cart_id= '{}'"
+                    " and user_id = '{}'"
+                    " and item_id = '{}'").format(cart_id,userid, item['item_id'])
+            
+            super(CartDao,self).read(query= query)
+        query = ("insert into cart (cart_id, user_id, total,item_id) "
+                     "values('{}', '{}',{},'{}')").format(cart_id,userid,0.0, "-1")
+        super(CartDao,self).read(query= query)
+            
+        

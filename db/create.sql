@@ -79,7 +79,7 @@ CREATE TABLE address (
 'Uttar Pradesh',
  'West Bengal'),
  
- city Enum("Mumbai","Pune","Delhi","Konkan"),
+ city varchar(100),
  zipcode int(6) not null,
  street varchar(100) not null,
  building varchar(12),

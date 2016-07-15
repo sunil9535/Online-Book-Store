@@ -30,26 +30,7 @@ class BookDao(DataAccessor):
                      " left join rating"
                      " on rating.isbn = books.isbn"
                      " where rating.score <={} and rating.score> {};").format(BookConfig.popular_max_rt, BookConfig.popular_min_rt)
-            '''self.collection.aggregate([{"$lookup":{
-                "from":"categories",
-                "localField":"category_id",
-                "foreignField":"_id",
-                "as":"category"
-                    }
-                                                 },
-                    {
-                     "$out":"booksWithCategory"
-                    }
-            ]);
             
-            cursor = self.database.booksWithCategory.aggregate([{"$lookup":{"from":"ratings","localField":"isbn","foreignField":"isbn", "as":"booksWithratings"}},{"$out":"booksWithRatings"}])
-            cursor = self.database.booksWithRatings.find()
-            while True:
-                try: 
-                    
-                    book_list.append(cursor.next())
-                except StopIteration:
-                    break'''
             book_list = super(BookDao,self).read(query= query)
             return book_list
         except Exception as e:

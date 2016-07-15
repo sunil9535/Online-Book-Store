@@ -27,7 +27,7 @@ app.config(function($routeProvider){
 		controller:"profileCtrl"
 	}).
 	when("/orders",{
-		templateUrl:'',
+		templateUrl:'static/js/components/orders/templates/order.html',
 		controller:"orderCtrl"
 	}).
 	when("/bookstore/contact",{
