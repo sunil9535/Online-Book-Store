@@ -24,7 +24,7 @@
 					<div class="product-title">Title: {{book.title}}</div>
 					<div class="product-desc">Subject: {{book.subject}}</div>
 					 <div class="product-rating"><span>Ratings: </span>
-					  	<span ng-class="{'selected-star':rating == true}" ng-repeat='rating in avgRatings track by $index' class="glyphicon glyphicon-star unselected-star"></span>
+					  	<span ng-class="{'selected-star':rating == true}" ng-repeat='rating in item.ratingList track by $index' class="glyphicon glyphicon-star unselected-star"></span>
 					   </div>
 					<hr>
 					<div class="product-price">Price: {{book.price}}</div>

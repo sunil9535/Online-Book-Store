@@ -1,6 +1,6 @@
 angular.module("bookStore").controller("booksCtrl", ['$scope','$rootScope','BookService',
-	'$routeParams','CartService','$sce','$compile',
-	function($scope, $rootScope, BookService, $routeParams,CartService,$sce,$compile){
+	'$routeParams','CartService','$sce','$compile','WishlistService',
+	function($scope, $rootScope, BookService, $routeParams,CartService,$sce,$compile,WishlistService){
 	
 	$scope.ratings = []
 	$scope.avgRatings = [false,false,false,false,false]
@@ -63,6 +63,13 @@ angular.module("bookStore").controller("booksCtrl", ['$scope','$rootScope','Book
 			$rootScope.$broadcast("refreshCart")
 		})
 		
+	}
+	
+	$scope.addToWishlist = function(book){
+		WishlistService.addToWishList({'isbn':isbn}).then(function(res){
+			data = res;
+			//$rootScope.$broadcast("refreshCart")
+		})
 	}
 	init()
 

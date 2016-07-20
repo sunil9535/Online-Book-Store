@@ -26,9 +26,16 @@ class WishlistDao(DataAccessor):
                      "available_copies, price, format, keywords, subject,image_loc "
                      "from wishlist as w left join books as b "
                      "on b.ISBN=w.isbn where user_id='{}'").format(userid)
-            result = super(WishlistDao).read(query=query)
+            result = super(WishlistDao, self).read(query=query)
+            for i in result:
+                q = (
+                    "select * from rating where isbn='{}'").format(i.get('isbn'))
+                rt = super(WishlistDao, self).read(query=q)
+                i['rating'] = rt
+
             return result
-        except Exception:
+        except Exception as e:
+            print(e, 'in getwishlist')
             return []
 
     def addToWishlist(self, isbn, userid):

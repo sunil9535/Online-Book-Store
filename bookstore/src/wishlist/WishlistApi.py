@@ -16,7 +16,7 @@ class WishlistApi(Resource):
 
     def get(self):
         try:
-            return jsonify({'status': 'success', 'data': dao.getWishList()})
+            return jsonify({'status': 'success', 'data': dao.getWishlist()})
         except Exception:
             return jsonify({'status': 'failed', 'message': 'could not complete the request'})
 

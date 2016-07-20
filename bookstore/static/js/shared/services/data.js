@@ -80,6 +80,32 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 	var getOrderDetails = function(){
 		return $http.post(config.baseUrl+ 'order/getOrders',{headers: {'Content-Type': 'application/json'}})
 	}
+	
+	
+	var removeFromWishlist = function(params){
+		return $http({
+			method:'POST',
+			data:angular.toJson(params),
+			url:config.baseUrl+'user/wishlist',
+			headers: {'Content-Type': 'application/json'}
+		});
+	}
+	var addToWishList = function(params){
+		return $http({
+			method:'POST',
+			data:angular.toJson(params),
+			url:config.baseUrl+ 'user/wishlist',
+			headers: {'Content-Type': 'application/json'}
+		});
+	}
+	var getWishlist = function(){
+		return $http({
+			method:'GET',
+			url:config.baseUrl+ 'user/wishlist',
+			headers: {'Content-Type': 'application/json'}
+		});
+	
+	}
 	return {
 		"getPopularBooks":getPopularBooks,
 		"getAllCategories":getAllCategories,
@@ -90,7 +116,10 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		"saveAddress":saveAddress,
 		"pay":pay,
 		"getOrderDetails":getOrderDetails,
-		'getBookInfo':getBookInfo
+		'getBookInfo':getBookInfo,
+		"removeFromWishlist":removeFromWishlist,
+		"addToWishList":addToWishList,
+		"getWishlist":getWishlist
 	}
 	
 })

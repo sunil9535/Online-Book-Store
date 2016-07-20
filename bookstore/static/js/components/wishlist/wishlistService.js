@@ -2,8 +2,7 @@ angular.module("bookStore").factory("WishlistService",
 		function($q, $http, DataService) {
 			var endPoint = "wishlist"
 			var dataService = DataService
-			var cart = {}
-			var cs = {}
+			var cs = this
 
 			/*
 			 * @param offset: page number: for example if offset is 0 records
@@ -12,9 +11,9 @@ angular.module("bookStore").factory("WishlistService",
 			 * records from audit log according to the offset
 			 * 
 			 */
-			cs.getCartByUser = function(userId) {
+			cs.getWishlist = function() {
 				var deferred = $q.defer();
-				dataService.getCartByUser(userId).then(function(response) {
+				dataService.getWishlist().then(function(response) {
 					if (response) {
 						deferred.resolve(response);
 					} else {
@@ -24,13 +23,9 @@ angular.module("bookStore").factory("WishlistService",
 				return deferred.promise;
 			}
 
-			cs.addItemToCart = function(item) {
+			cs.addToWishList = function(data) {
 				var deferred = $q.defer();
-				dataService.addItemToCart({
-					"cart_id" : cs.cart.cart_id,
-					"data" : item
-				}).then(function(response) {
-					bookRepository = response.data;
+				dataService.addToWishList(data).then(function(response) {
 					if (response) {
 						deferred.resolve(response);
 					} else {
@@ -39,9 +34,9 @@ angular.module("bookStore").factory("WishlistService",
 				});
 				return deferred.promise;
 			}
-			cs.getCartWithDetails = function(item) {
+			cs.removeFromWishlist = function(isbn) {
 				var deferred = $q.defer();
-				dataService.getCartWithDetails().then(function(response) {
+				dataService.removeFromWishlist({'isbn':isbn}).then(function(response) {
 					if (response) {
 						deferred.resolve(response);
 					} else {
