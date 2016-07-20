@@ -10,7 +10,11 @@ app.config(function($routeProvider){
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
 	}).
-	when("/bookstore/books/category/:categoryid",{
+	when("/bookstore/book/info/:isbn",{
+		templateUrl:'static/js/components/books/templates/bookDetails.html',
+		controller:"booksCtrl"
+	}).
+	when("/bookstore/books/category/:categoryid/:categoryName",{
 		templateUrl:'static/js/components/books/templates/booklist.html',
 		controller:"booksCtrl"
 	}).
@@ -37,6 +41,10 @@ app.config(function($routeProvider){
 	when("/checkout/shipment",{
 		templateUrl:'static/js/components/checkout/shipment/shipment.html',
 		controller:"shipmentCtrl"
+	}).
+	when("/user/wishlist",{
+		templateUrl:'static/js/components/wishlist/templates/wishlist.html',
+		controller:"wishlistCtrl"
 	}).
 	when("/checkout/payment",{
 		templateUrl:'static/js/components/checkout/payment/payment.html',

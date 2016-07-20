@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,iBAAkB;EACjB,OAAO,EAAE,SAAS;EAEjB,qCAAI;IACH,SAAS,EAAE,OAAO;EAGlB,mDAAW;IACV,KAAK,EAAC,GAAG;EAGX,sCAAK;IACJ,UAAU,EAAE,IAAI;IACb,SAAS,EAAE,KAAK;EAOnB,oDAAS;IACR,MAAM,EAAE,EAAE",
+"sources": ["wishlist.scss"],
+"names": [],
+"file": "wishlist.css"
+}

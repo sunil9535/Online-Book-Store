@@ -1,0 +1,63 @@
+'''
+Created on 20-Jul-2016
+
+@author: Dell
+'''
+
+import datetime
+import random
+import pymysql
+from bookstore.config import userid
+from bookstore.src.dao.DataAccessor import DataAccessor
+
+
+class WishlistDao(DataAccessor):
+    '''
+    classdocs
+    '''
+
+    def __init__(self):
+        super(WishlistDao, self).__init__()
+
+    def getWishlist(self):
+        try:
+            query = ("select w.*,b.ISBN, title, authors, publisher, "
+                     "DATE_FORMAT(yop,'%Y-%m-%d') as yop, "
+                     "available_copies, price, format, keywords, subject,image_loc "
+                     "from wishlist as w left join books as b "
+                     "on b.ISBN=w.isbn where user_id='{}'").format(userid)
+            result = super(WishlistDao).read(query=query)
+            return result
+        except Exception:
+            return []
+
+    def addToWishlist(self, isbn, userid):
+        getQuery = (
+            "select * from wishlist where user_id='{}'").format(userid)
+        getResult = super(WishlistDao).read(query=getQuery)
+        wishlist_id = str(random.randint(0, 9999999))
+        userQuery = (
+            "select * from customer where Login_id='{}'").format(userid)
+        userData = super(WishlistDao).read(query=userQuery)
+
+        wishListName = userData[0].Name.split(' ')[0] + "'s wishlist"
+
+        if len(getResult) > 0:
+            wishlist_id = getResult[0].wishlist_id
+        query = ("insert into wishlist(user_id, wishlist_id,isbn,name)").format(
+            userid, wishlist_id, isbn, wishListName)
+        super(WishlistDao).read(query=query)
+
+    def removefromWishList(self, i, userid):
+        query = ("delete from wishlist where id ={} and user_id='{}'").format(
+            i, userid)
+        super(WishlistDao).read(query=query)
+
+    def updateWishlist(self, i=None, isbn=None, operationType='add'):
+        try:
+            if operationType == 'add':
+                self.addToWishlist(isbn, userid)
+            else:
+                self.removefromWishList(i, userid)
+        except Exception:
+            return []

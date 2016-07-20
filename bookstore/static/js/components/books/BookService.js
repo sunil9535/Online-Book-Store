@@ -35,6 +35,22 @@ angular.module("bookStore").service("BookService",function($q, $http, DataServic
 		return deferred.promise;
 	}
 	
+
+	this.getBookInfo = function(params){
+		var deferred = $q.defer();
+		dataService.getBookInfo(params).then(function(response){
+			if(response){
+				deferred.resolve(response);
+			}
+			else {
+				deferred.reject;
+			}
+		});
+		return deferred.promise;
+	}
+	
+
+
 	this.getBookRepository= function(){
 		return this.bookRepository
 	}

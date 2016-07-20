@@ -22,7 +22,7 @@
                 					<div class="media-heading">{{item.book.title}} </div>
                 					<div class="">Subject : {{item.book.subject}}</div>
                 					<div class="">Authors : {{item.book.authors}}</div>
-                					<div class="">Publisher : {{item.book.publisher}}</div>
+                					<div class="">Publipcartsher : {{item.book.publisher}}</div>
                 					<div class="media-heading">Stock :{{item.book.available}}</div>
                 				</div>
                 			</div>
@@ -34,7 +34,7 @@
 						<td class="col-lg-1 price">{{item.price | currency:"&#8377;"}}</td>
 						<td class="col-lg-1 total">{{item.total | currency:"&#8377;"}}</td>
 						<td class="col-lg-1 remove-item">
-							<button class="btn btn-danger btn-sm btn-remv"><span class="glyphicon glyphicon-trash btn-rmv-icon"></span></button>
+							<button ng-click='removeFromCart(item,$index)' class="btn btn-danger btn-sm btn-remv"><span class="glyphicon glyphicon-trash btn-rmv-icon"></span></button>
 						</td>                		
                 	</tr>
                 	<tr class="subtotal">
@@ -49,7 +49,7 @@
                         <td> &nbsp; </td>
                         <td> &nbsp; </td>
                         <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
+                        <td class="text-right"><h5><strong>21</strong></h5></td>
                     </tr>
                     <tr class="total">
                         <td> &nbsp; </td>

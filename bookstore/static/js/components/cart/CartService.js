@@ -28,7 +28,7 @@ angular.module("bookStore").factory("CartService",
 				var deferred = $q.defer();
 				dataService.addItemToCart({
 					"cart_id" : cs.cart.cart_id,
-					"item" : item
+					"data" : item
 				}).then(function(response) {
 					bookRepository = response.data;
 					if (response) {

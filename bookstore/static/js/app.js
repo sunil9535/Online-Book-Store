@@ -1,1 +1,1 @@
-var app=angular.module("bookStore",['ngRoute','ui.bootstrap']);
+var app=angular.module("bookStore",['ngRoute','ui.bootstrap','ngSanitize']);

@@ -3,6 +3,8 @@
  */
 angular.module("bookStore").factory("DataService",function($q, $http){
 	endPoint="books"
+		$http.defaults.useXDomain= true
+		
 	/*
 	 	@param offset: page number: for example if offset is 0 records fetched will be 0 - 4 ,if offset is 1 records fetched will be 5- 9
 	 	@return: promise for api 
@@ -10,10 +12,26 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 	 	
 	 */
 	var getPopularBooks =  function(){
-		return $http.get(config.baseUrl+ 'books/getPopularBooks',{headers: {'Content-Type': 'application/json'}});
+//		var resource = $resource(config.baseUrl+ 'books/getPopularBooks')
+		return $http({
+			method:'GET',
+			url:config.baseUrl+ 'books/getPopularBooks',
+			headers: {'Content-Type': 'application/json'}
+		});
+		
 	}
 	
-	
+	var getBookInfo =  function(params){
+//		var resource = $resource(config.baseUrl+ 'books/getPopularBooks')
+		return $http({
+			method:'POST',
+			data:angular.toJson(params),
+			url:config.baseUrl+ 'books/getBookInfo',
+			headers: {'Content-Type': 'application/json'}
+		});
+		
+	}
+
 	/*
  	@param offset: page number: for example if offset is 0 records fetched will be 0 - 4 ,if offset is 1 records fetched will be 5- 9
  	@return: promise for api 
@@ -71,7 +89,8 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		"getCartWithDetails":getCartWithDetails,
 		"saveAddress":saveAddress,
 		"pay":pay,
-		"getOrderDetails":getOrderDetails
+		"getOrderDetails":getOrderDetails,
+		'getBookInfo':getBookInfo
 	}
 	
 })

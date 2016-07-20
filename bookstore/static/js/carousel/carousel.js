@@ -14,7 +14,7 @@ angular.module("bookStore").directive("carousel",function(){
 		},
 		controller:"carouselCtrl"
 	}
-}).controller("carouselCtrl",['$scope',function($scope){
+}).controller("carouselCtrl",['$scope','CartService',function($scope,CartService){
 	$scope.stack =[]
 	$scope.getImageLocation= function(location){
 		return decodeURIComponent(location)
@@ -46,4 +46,12 @@ angular.module("bookStore").directive("carousel",function(){
 		}
 	})
 	
+	$scope.addItemToCart= function(book){
+		var data ={'operationType':'add','item':{"isbn":book.isbn, "price":book.price, "quantity":1}}
+		CartService.addItemToCart(data).then(function(res){
+			data = res;
+			$rootScope.$broadcast("refreshCart")
+		})
+		
+	}
 }])

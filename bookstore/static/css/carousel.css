@@ -24,3 +24,7 @@
 .item .carousel-panel{
 	float: left;
 }
+
+.panel-body, .panel-footer{
+	cursor:pointer
+}

@@ -7,10 +7,37 @@ angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryS
 	}
 	
 	var populateCategories= function(list){
-		$scope.navigationList.submenu[1].submenu = list
+		var baseCats = [list.root,
+		                {
+							children:[],
+							data:{
+								name:'My orders'
+							}},{
+							children:[],
+							data:{
+								name:'Profile'
+							}},{
+							children:[],
+							data:{
+								name:'Gift Cards'
+							}},{
+							children:[],
+							data:{
+								name:'Wish list'
+							}}
+		               ]
+		var rootCat= {
+				children:baseCats,
+				data:{
+					name:'Menu'
+				}
+		}
+		
+		$scope.navigationList=  rootCat
 	}
 	
 	var init = function() {
+		$scope.navigationList ={}
 		$scope.populateNavigationList()
 		CategoryService.getAllCategories().then(function(res){
 				populateCategories(res.data.categoryList)
@@ -35,14 +62,21 @@ angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryS
 }).controller('collapseListCtrl',[ '$scope', 'SideMenu', 'BookService','$location',function($scope, SideMenu, BookService, $location) {
 	
 	$scope.filterByCategory= function(event, index, category){
-		if(this.item.root && this.item.root== true){
-			return;
+		if(category.data.name=='My orders'){
+			$location.path('/orders')
+			return
 		}
-		arr= {"cat_id":category.id , sub_cat_ids:[] }
-		angular.forEach(category.submenu,function(value, key){ 
-			arr.sub_cat_ids.push(value.id)
-		})
-		$location.path("/bookstore/books/category/"+arr.cat_id)
+		
+		if(category.data.name=='Wish list'){
+			$location.path('/user/wishlist')
+			return
+		}
+		
+		var ids= []
+		category.children.forEach(function(d,i) { ids.push(d.data.id)})
+		
+		$location.path("/bookstore/books/category/"+category.data.id
+				+'/'+category.data.name)
 	}
 	
 } ])

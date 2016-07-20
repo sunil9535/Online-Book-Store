@@ -1,4 +1,4 @@
-angular.module("bookStore").controller("cartCtrl", ['$scope','CartService','$routeParams','$location',function($scope, CartService, $routeParams, $location){
+angular.module("bookStore").controller("cartCtrl", ['$scope','CartService','$routeParams','$location','$rootScope',function($scope, CartService, $routeParams, $location,$rootScope){
 	var init= function(){
 		CartService.getCartWithDetails().then(function(res){
 			
@@ -12,4 +12,19 @@ angular.module("bookStore").controller("cartCtrl", ['$scope','CartService','$rou
 		$location.path("/checkout/shipment")
 	}
 	init()
+
+	$scope.removeFromCart= function (item,$index) {
+		var operationType= 'delete'
+		var data = {
+			'operationType':operationType,
+			'item':item
+
+		}
+		CartService.addItemToCart(data).then(function(res){
+			data = res;
+			init()
+			$rootScope.$broadcast("refreshCart")
+		})
+
+	}
 }])
