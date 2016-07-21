@@ -1,6 +1,7 @@
 # Online-Book-Store
 An online Book Store created with Python / Flask rest, MySql,Angular and Bootstrap 
-# Features 
+# 
+Features
 # use of several data structures for optimization techniques
 # A full fledged functionality with Modules like cart, wishlist, payment, order processing 
 # Real time data integration from Database .
