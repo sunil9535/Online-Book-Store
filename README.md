@@ -10,6 +10,9 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/Home.png)
 
 
+# Product info to be shown when user clicks on any book from booklist
+![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/product-info.png)
+
 # Cart details when user had few items in cart
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/cart-page.png)
 
@@ -26,10 +29,6 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 
 # Payment process page with full validations after user fills in the shipment data  
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/payment.png)
-
-
-# Product info to be shown when user clicks on any book from booklist
-![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/product-info.png)
 
 
 # reviews added by user for a book
