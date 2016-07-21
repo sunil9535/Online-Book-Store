@@ -23,7 +23,7 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/wishlist.png)
 
 # Order page when user has ordred books after payments process
-![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/orderlist.pngg)
+![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/orderlist.png)
 
 
 
