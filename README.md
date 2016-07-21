@@ -9,8 +9,6 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 # Home Page
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/Home.png)
 
-# Book list page when a user filters the list by clicking on any category 
-![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/booklist.png)
 
 # Cart details when user had few items in cart
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/cart-page.png)
