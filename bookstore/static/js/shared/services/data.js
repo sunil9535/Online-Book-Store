@@ -98,6 +98,15 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 			headers: {'Content-Type': 'application/json'}
 		});
 	}
+	
+	var allBooks = function(){
+		return $http({
+			method:'POST',
+			url:config.baseUrl+ 'books/getAllBooks',
+			headers: {'Content-Type': 'application/json'}
+		});
+	}
+	
 	var getWishlist = function(){
 		return $http({
 			method:'GET',
@@ -106,6 +115,28 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		});
 	
 	}
+	
+	var search = function(query, context){
+		return $http({
+			method:'POST',
+			data:angular.toJson({'context':context, 'query':query}),
+			url:config.baseUrl +'books/search',
+			headers: {'Content-Type': 'application/json'}
+		});
+	
+	}
+
+	var sortBooks = function(params){
+		return $http({
+			method:'POST',
+			data:angular.toJson(params),
+			url:config.baseUrl +'books/filter',
+			headers: {'Content-Type': 'application/json'}
+		});
+	
+	}
+
+
 	return {
 		"getPopularBooks":getPopularBooks,
 		"getAllCategories":getAllCategories,
@@ -119,7 +150,10 @@ angular.module("bookStore").factory("DataService",function($q, $http){
 		'getBookInfo':getBookInfo,
 		"removeFromWishlist":removeFromWishlist,
 		"addToWishList":addToWishList,
-		"getWishlist":getWishlist
+		"getWishlist":getWishlist,
+		"allBooks":allBooks,
+		"search":search,
+		'sortBooks':sortBooks
 	}
 	
 })

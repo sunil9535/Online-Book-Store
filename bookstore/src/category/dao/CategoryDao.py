@@ -16,6 +16,7 @@ class CategoryDao(DataAccessor):
 
     def __init__(self):
         super(CategoryDao, self).__init__()
+        self.cat = CategoryService()
 
     def get_books_by_id(self, category_id=None):
         try:
@@ -27,6 +28,7 @@ class CategoryDao(DataAccessor):
             print(e, "get_books_by_id", "SubCat")
 
     def get_all_categories(self, cat_id=None):
+        self.cat = CategoryService()
         try:
             query = ("select parent.name as main_category,"
                      "parent.cat_id as cat_id, child.name as subcategory,"
@@ -35,7 +37,7 @@ class CategoryDao(DataAccessor):
                      "left join category as child "
                      "on parent.cat_id = child.parent where child.name is not NULL;")
             raw_categories = super(CategoryDao, self).read(query=query)
-            categorie_list = CategoryService().prepare_categories(
+            categorie_list = self.cat.prepare_categories(
                 raw_categories)
 
             return categorie_list

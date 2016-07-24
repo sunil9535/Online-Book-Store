@@ -1,4 +1,3 @@
-from jinja2.nodes import Node
 
 
 class Node():
@@ -14,7 +13,8 @@ class Node():
         return str(self.data) + str(self.children)
 
 
-class Tree():
+class Tree(object):
+    _instance = None
 
     def __init__(self, root):
         self.root = Node(root)

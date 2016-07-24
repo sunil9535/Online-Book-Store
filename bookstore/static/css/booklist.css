@@ -12,6 +12,8 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
     .book-list .info-bar .row .dropdown {
       float: right; }
+    .book-list .info-bar .sort-bar .sort-options li {
+      cursor: pointer; }
   .book-list .tab-content .carousel-panel {
     width: auto;
     display: inline-block;

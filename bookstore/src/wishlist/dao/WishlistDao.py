@@ -41,30 +41,32 @@ class WishlistDao(DataAccessor):
     def addToWishlist(self, isbn, userid):
         getQuery = (
             "select * from wishlist where user_id='{}'").format(userid)
-        getResult = super(WishlistDao).read(query=getQuery)
+        getResult = super(WishlistDao, self).read(query=getQuery)
         wishlist_id = str(random.randint(0, 9999999))
         userQuery = (
             "select * from customer where Login_id='{}'").format(userid)
-        userData = super(WishlistDao).read(query=userQuery)
+        userData = super(WishlistDao, self).read(query=userQuery)
 
-        wishListName = userData[0].Name.split(' ')[0] + "'s wishlist"
+        wishListName = userData[0].get('Name').split(' ')[0] + "s wishlist"
 
         if len(getResult) > 0:
-            wishlist_id = getResult[0].wishlist_id
-        query = ("insert into wishlist(user_id, wishlist_id,isbn,name)").format(
+            wishlist_id = getResult[0].get('wishlist_id')
+        query = ("insert into wishlist(user_id, wishlist_id,isbn,name) values('{}','{}','{}','{}')").format(
             userid, wishlist_id, isbn, wishListName)
-        super(WishlistDao).read(query=query)
+        super(WishlistDao, self).read(query=query)
 
     def removefromWishList(self, i, userid):
         query = ("delete from wishlist where id ={} and user_id='{}'").format(
             i, userid)
-        super(WishlistDao).read(query=query)
+        super(WishlistDao, self).read(query=query)
 
     def updateWishlist(self, i=None, isbn=None, operationType='add'):
         try:
             if operationType == 'add':
                 self.addToWishlist(isbn, userid)
+
             else:
                 self.removefromWishList(i, userid)
-        except Exception:
+        except Exception as e:
+            print(e)
             return []

@@ -34,9 +34,9 @@ angular.module("bookStore").factory("WishlistService",
 				});
 				return deferred.promise;
 			}
-			cs.removeFromWishlist = function(isbn) {
+			cs.removeFromWishlist = function(data) {
 				var deferred = $q.defer();
-				dataService.removeFromWishlist({'isbn':isbn}).then(function(response) {
+				dataService.removeFromWishlist(data).then(function(response) {
 					if (response) {
 						deferred.resolve(response);
 					} else {

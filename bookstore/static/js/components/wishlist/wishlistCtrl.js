@@ -34,6 +34,7 @@ angular.module("bookStore").controller("wishlistCtrl",
 	}
 	
 	
+
 	$scope.getImageLocation= function(location){
 		return decodeURIComponent(location)
 	}
@@ -47,5 +48,15 @@ angular.module("bookStore").controller("wishlistCtrl",
 		
 	}
 	
+	
+
+	$scope.removefromWishList= function(book){
+		var data ={'operationType':'delete','id':book.id}
+		WishlistService.removeFromWishlist(data).then(function(res){
+			init()
+		})
+		
+	}
+
 	init()
 }])

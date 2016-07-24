@@ -3,7 +3,7 @@ app.config(function($routeProvider){
 		redirectTo:'/bookstore'
 	}).
 	when("/bookstore",{
-		templateUrl:'static/js/components/store/templates/popular-books.html',
+		templateUrl:'static/js/components/store/templates/bookstore.html',
 		controller:"storeCtrl"
 	}).
 	when("/store/books",{

@@ -11,14 +11,20 @@ class CategoryService(object):
     '''
     classdocs
     '''
+    _instance = None
+#     categoryTree = Tree(Category('root', 0))
 
-    categoryTree = Tree(Category('root', 0))
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(CategoryService, cls).__new__(
+                cls, *args, **kwargs)
+        return cls._instance
 
     def __init__(self):
-        pass
+        self.categoryTree = Tree(Category('root', 0))
 
-    def getCategoriesById(self, data):
-        return self.categoryTree.getAllChildren(Category(data[1], data[0]))
+    def getCategoriesById(self, i, name):
+        return self.categoryTree.getAllChildren(Category(name, i))
 
     def constructTree(self, categoryData):
         for cat in categoryData:

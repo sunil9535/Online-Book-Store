@@ -16,7 +16,19 @@
     		    float: right;
     		}
     	}
+    	
+    	.sort-bar{
+    		.sort-options{
+    			li{
+    				cursor:pointer;
+    			}
+    			.selected-sort{
+    				
+    			}
+    		}
+    	}
 	}
+	
 	.tab-content{
 		.carousel-panel{
 			.glyphicon-shopping-cart, .book-details{
@@ -50,3 +62,4 @@
 		}
 	}
 }
+

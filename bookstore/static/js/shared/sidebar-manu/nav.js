@@ -1,10 +1,12 @@
 
-angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryService',function($scope, SideMenu, CategoryService) {
+angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryService','$rootScope',
+	function($scope, SideMenu, CategoryService, $rootScope) {
 	$scope.navigationList = []
 	
 	$scope.populateNavigationList = function(categories) {
 		$scope.navigationList = SideMenu;
 	}
+
 	
 	var populateCategories= function(list){
 		var baseCats = [list.root,
@@ -34,6 +36,7 @@ angular.module("bookStore").controller('navCtrl',['$scope','SideMenu','CategoryS
 		}
 		
 		$scope.navigationList=  rootCat
+		$rootScope.$broadcast('categoryLoaded')
 	}
 	
 	var init = function() {

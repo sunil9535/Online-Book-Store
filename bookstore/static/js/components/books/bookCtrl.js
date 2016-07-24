@@ -5,6 +5,19 @@ angular.module("bookStore").controller("booksCtrl", ['$scope','$rootScope','Book
 	$scope.ratings = []
 	$scope.avgRatings = [false,false,false,false,false]
 
+	$scope.sortOpts =['Popularity','Price Low to High','Price High to Low','Latest release']
+	$scope.search = {
+		'searchText':undefined,
+		'context':'books'
+	}
+	$scope.sortConfig = {
+		'selected' :$scope.sortOpts[0]
+	}
+
+	$scope.category = {
+		'id':undefined,
+		'name':undefined
+	}
 	var calculateRatings = function(){
 		var avg =0;
 		var total =10;
@@ -31,8 +44,26 @@ angular.module("bookStore").controller("booksCtrl", ['$scope','$rootScope','Book
 
 	
 	var initBookList = function(){
-		BookService.getBookBycategory([parseInt($routeParams.categoryid),$routeParams.categoryName]).then(function(res){
+		$scope.category.id = $routeParams.categoryid
+		$scope.category.name = $routeParams.categoryName
+		BookService.getBookBycategory([$routeParams.categoryName, parseInt($routeParams.categoryid)]).then(function(res){
 			$scope.bookList = res.data.books;
+		})
+	}
+
+	$scope.sortBookList= function (index) {
+		var params = {};
+		$scope.sortConfig.selected= $scope.sortOpts[index]
+		if($scope.category.id && $scope.category.name){
+			params.filterParam = $scope.category
+		}
+
+		if($scope.search.searchText){
+			params.searchText = $scope.search.searchText
+		}
+		params.sortParam = index
+		BookService.sortBooks(params).then(function(res){
+			$scope.bookList = res.data.result;
 		})
 	}
 
@@ -65,11 +96,22 @@ angular.module("bookStore").controller("booksCtrl", ['$scope','$rootScope','Book
 		
 	}
 	
+	$scope.$on('categoryLoaded', function(){
+		init()
+	})	
 	$scope.addToWishlist = function(book){
-		WishlistService.addToWishList({'isbn':isbn}).then(function(res){
+		WishlistService.addToWishList({'operationType':'add','isbn':book.isbn}).then(function(res){
 			data = res;
 			//$rootScope.$broadcast("refreshCart")
 		})
+	}
+
+	$scope.searchQuery = function(){
+		if($scope.search.searchText.trim()!= ''){
+			BookService.search($scope.search).then(function(res){
+				$scope.bookList = res.data.searchResult
+			})
+		}
 	}
 	init()
 

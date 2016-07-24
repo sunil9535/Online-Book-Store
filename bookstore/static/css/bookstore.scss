@@ -1,4 +1,14 @@
 .layout-main{
+	.search-bar{
+		#search-input{
+			.searchQuery{
+				
+			}
+			.search-btn{
+				cursor:pointer
+			}
+		}
+	}
 	.row{
 		.carousel{
 			.carousel-indicators{}
