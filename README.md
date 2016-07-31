@@ -22,6 +22,9 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 # Category implemented with full features of filtering books by category
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/category.png)
 
+# Search sort and filter 
+![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/sortsearch.png)
+
 # User wishlist 
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/wishlist.png)
 
@@ -33,3 +36,6 @@ Responsive layout for extra small, Large Medium devices and browsers(ofcourse)
 
 # Shipment form with validations when user clicks on checkout 
 ![ScreenShot](https://raw.github.com/siddhiparkar151992/Online-Book-Store/master/screenshots/shipment.png)
+
+
+
